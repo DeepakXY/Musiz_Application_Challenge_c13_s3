@@ -1,0 +1,23 @@
+package com.example.Musiz_Application_Challenge_c13_s3.repository;
+
+import com.example.Musiz_Application_Challenge_c13_s3.domain.Track;
+import org.springframework.data.mongodb.repository.MongoRepository;
+import org.springframework.data.mongodb.repository.Query;
+import org.springframework.stereotype.Repository;
+
+import java.util.List;
+
+@Repository
+public interface TrackRepository extends MongoRepository<Track, Integer> {
+    List<Track> findByTrackname(String trackname);
+
+    List<Track> findByTrackrating(String trackrating);
+
+    List<Track> findByTrackartist(String trackartist);
+
+    @Query("{'artist.artistnaame':{$in:[?0]}}")
+        // @Query("{'product.productname':{$in:[?0]}}")
+    List<Track> findAllTrackArtistName(String artistname);
+
+
+}
