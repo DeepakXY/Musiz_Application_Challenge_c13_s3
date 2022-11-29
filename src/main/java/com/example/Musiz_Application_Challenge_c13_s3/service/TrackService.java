@@ -13,9 +13,11 @@ public interface TrackService {
 
     List<Track> findByTrackartist1(String trackartist);
 
-    List<Track> getTrackname1(String trackname);
+    List<Track> getTrackname2(String trackname);
 
     List<Track> findByTrackname1(String trackname);
 
     List<Track> findByTrackrating1(String trackrating);
+
+    List<Track> getAllTrackRatingGreaterThan4();
 }

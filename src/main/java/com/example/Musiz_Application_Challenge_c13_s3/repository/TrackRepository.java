@@ -15,9 +15,12 @@ public interface TrackRepository extends MongoRepository<Track, Integer> {
 
     List<Track> findByTrackartist(String trackartist);
 
-    @Query("{'artist.artistnaame':{$in:[?0]}}")
+    @Query("{'artist.artistname':{$in:[?0]}}")
         // @Query("{'product.productname':{$in:[?0]}}")
     List<Track> findAllTrackArtistName(String artistname);
+
+    @Query("{'trackrating':{$gt:'4'}}")
+    List<Track> findAllTracksFromRatingGreaterThan4();
 
 
 }

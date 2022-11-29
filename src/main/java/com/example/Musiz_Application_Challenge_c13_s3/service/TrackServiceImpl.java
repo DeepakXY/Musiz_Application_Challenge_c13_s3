@@ -54,7 +54,13 @@ public class TrackServiceImpl implements TrackService {
     }
 
     @Override
-    public List<Track> getTrackname1(String trackname) {
+    public List<Track> getTrackname2(String trackname) {
         return trackRepository.findAllTrackArtistName(trackname);
+    }
+
+    @Override
+    public List<Track> getAllTrackRatingGreaterThan4() {
+
+        return trackRepository.findAllTracksFromRatingGreaterThan4();
     }
 }

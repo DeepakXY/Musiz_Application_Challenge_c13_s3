@@ -54,8 +54,16 @@ public class TrackController {
         return new ResponseEntity<>(trackService.findByTrackartist1(trackartist), HttpStatus.OK);
     }
 
-    @GetMapping("findallArtistName/{artistname}")
+    @GetMapping("/findallArtistName/{artistname}")
     public ResponseEntity<?> function4(@PathVariable String artistname) {
-        return new ResponseEntity<>(trackService.getTrackname1(artistname), HttpStatus.OK);
+
+        return new ResponseEntity<>(trackService.getTrackname2(artistname), HttpStatus.OK);
+    }
+
+    @GetMapping("/track/rating4")
+    public ResponseEntity<?> getAllTrackRatingGreaterThan4() {
+
+        return new ResponseEntity(trackService.getAllTrackRatingGreaterThan4(), HttpStatus.CREATED);
+
     }
 }
